@@ -7,3 +7,5 @@ library(shinycssloaders)
 library(tictoc)
 
 library(shinydashboard)
+
+source("functions.R")
