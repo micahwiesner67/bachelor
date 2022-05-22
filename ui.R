@@ -1,26 +1,55 @@
-shinyUI(fluidPage(
-  theme = bs_theme(version = 5, bootswatch = "simplex"),
-  
-  # good options for bootswatch --> 
-  # journal, cerulean, lux, "quartz" (colorful), 
-  # sandstone, simplex
-  # spacelab, united, "vapor" (colorful), yeti
-  
-  # notes: I like having black buttons on the map
-  
-  # the following changes the page title in the browser
-  tags$head(HTML("<title> Isaacs Title </title>")),
-  
-  titlePanel(shiny::fluidRow(column(
-                               br(),
-                               p("Go forth and find the freshest bachelor",
-                                 style = "text-align: center; color:black; background-color:lavender; 
-                                 padding:5px; border-radius:5px; font-size: 25px"),
-                               width = 8)
-                             )
-             ),
-  mainPanel(
-    HTML("")
+ui <- dashboardPage(
+  dashboardHeader(title = "The Bachelor Season 26 Fantasy Leagues"),
+  dashboardSidebar(),
+  dashboardBody(
+    # Boxes need to be put in a row (or column)
+    fluidRow(
+      box(
+        title = "Weekly Scores",
+        selectInput(
+          inputId = "week",
+          label = "Choose a week",
+          choices = list(1,2,3),
+          selected = NULL,
+          multiple = FALSE,
+          selectize = TRUE,
+          width = NULL,
+          size = NULL
+        ),
+        tableOutput("table")
+      )
+    ),
+    fluidRow(
+      box(
+        title = "Standings",
+        selectInput(
+          inputId = "week2",
+          label = "Choose a league",
+          choices = list("League 1","League 2","League 3"),
+          selected = NULL,
+          multiple = FALSE,
+          selectize = TRUE,
+          width = NULL,
+          size = NULL
+        ),
+        tableOutput("table2")
+      )
+    ),
+    fluidRow(
+      box(
+        title = "Rosters",
+        selectInput(
+          inputId = "team",
+          label = "Choose a league",
+          choices = list("Team1","Team2"),
+          selected = NULL,
+          multiple = FALSE,
+          selectize = TRUE,
+          width = NULL,
+          size = NULL
+        ),
+        tableOutput("rosters")
+      )
+    )
   )
-)
 )
