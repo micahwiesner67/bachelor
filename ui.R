@@ -1,14 +1,40 @@
+
 ui <- dashboardPage(
   dashboardHeader(title = "The Bachelor Season 26 Fantasy Leagues"),
   dashboardSidebar(
+    menuItem("Rules and Scoring", tabName = "rules", icon = icon("th")),
     menuItem("Weekly Scores", tabName = "dashboard", icon = icon("dashboard")),
     menuItem("Standings", tabName = "standings", icon = icon("th")),
     menuItem("Rosters", tabName = "rosters", icon = icon("th")),
-    menuItem("Player Charts", tabName = "scores_by_week", icon = icon("th")),
-    menuItem("Select Your League", tabName = "choose_league", icon = icon("th"))
+    menuItem("Player Charts", tabName = "scores_by_week", icon = icon("th"))
   ),
   dashboardBody(
     # Boxes need to be put in a row (or column)
+    fluidRow(
+      box(
+        title = "Select your league",
+        selectInput(
+          inputId = "league",
+          label = "Choose your league",
+          choices = list("Easterly Bean League","Westerly Beans","The Lost League"),
+          selected = NULL,
+          multiple = FALSE,
+          selectize = TRUE,
+          width = NULL,
+          size = NULL
+        ),
+        tableOutput("league")
+      )
+    ),
+    fluidRow(
+      box(
+        title = "UPDATE",
+        actionButton(
+          inputId = "update_league",
+          label = "Update"
+        )
+      )
+    ),
     tabItems(
         tabItem(tabName='dashboard',
           fluidRow(
@@ -25,7 +51,23 @@ ui <- dashboardPage(
                 size = NULL
               ),
               plotOutput("scoreboard_chart"),
-              tableOutput("scoreboard")
+              tableOutput("all_player_totals")
+            )
+          ),
+          fluidRow(
+            box(
+              title = "Player scores by Week",
+              selectInput(
+                inputId = "player_line",
+                label = "Choose a player",
+                choices = list("Jojo","Emily","Becca","Olivia","Lauren"),
+                selected = NULL,
+                multiple = FALSE,
+                selectize = TRUE,
+                width = NULL,
+                size = NULL
+              ),
+              plotOutput("scoreboard")
             )
           )
         ),
@@ -36,7 +78,7 @@ ui <- dashboardPage(
                     selectInput(
                       inputId = "player",
                       label = "Choose a player",
-                      choices = list("Player 1","Player 2"),
+                      choices = list("Jojo","Emily","Sarah"),
                       selected = NULL,
                       multiple = FALSE,
                       selectize = TRUE,
@@ -51,56 +93,23 @@ ui <- dashboardPage(
           fluidRow(
             box(
               title = "Standings",
-              selectInput(
-                inputId = "week2",
-                label = "Choose a league",
-                choices = list("League 1","League 2","League 3"),
-                selected = NULL,
-                multiple = FALSE,
-                selectize = TRUE,
-                width = NULL,
-                size = NULL
-              ),
               tableOutput("standings")
             )
           )
         ),
         tabItem(tabName='rosters',
           fluidRow(
-            box(
-              title = "Rosters",
-              selectInput(
-                inputId = "team",
-                label = "Choose a league",
-                choices = list("Team1","Team2"),
-                selected = NULL,
-                multiple = FALSE,
-                selectize = TRUE,
-                width = NULL,
-                size = NULL
-              ),
+            box(title = "Rosters",
               tableOutput("rosters")
-            )
           )
-        ),
-        tabItem(tabName='choose_league',
+        )),
+        tabItem(tabName='rules',
           fluidRow(
-            box(
-              title = "Select your league",
-              selectInput(
-                inputId = "league",
-                label = "Choose your league",
-                choices = list("League1","League2"),
-                selected = NULL,
-                multiple = FALSE,
-                selectize = TRUE,
-                width = NULL,
-                size = NULL
-              ),
-              tableOutput("league")
+            box(title = "Point Values",
+            tableOutput("point_value_table")
             )
-          )
         )
     )
   )
+)
 )

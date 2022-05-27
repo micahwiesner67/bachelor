@@ -1,7 +1,7 @@
 Event,
 GDR,10
-X2 on 1 win,10
-X2 on 1 loss,-10
+Two on one win,10
+Two on one loss,-10
 First LL4,10
 First kiss,5
 Any kiss,3
@@ -20,8 +20,8 @@ Zero point rose,10
 Knock Knock,15
 Ring winner,100
 Runner Up,80
-x3rd Place,60
-x4th place,40
-x5th place,20
-x6th place,10
+Third Place,60
+Fourth place,40
+Fifth place,20
+Sixth place,10
 Final RQ,10
