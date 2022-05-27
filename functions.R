@@ -3,6 +3,12 @@ clean_point_values_function <- function(my_dataframe){
     mutate(Event = gsub(" ", "_", Event)) 
 }
 
+clean_raw_data <- function(raw_data){
+  names(raw_scores)<-gsub(".", "_", names(raw_scores), fixed=TRUE)
+  raw_scores[is.na(raw_scores)] <- 0
+  return(raw_scores)
+}
+
 get_player_scores <- function(scores, raw_scores, point_values){
   scores <- raw_scores
   for(i in 1:26){
