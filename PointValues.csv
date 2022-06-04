@@ -1,27 +1,43 @@
-Event,
-GDR,10
-Two on one win,10
-Two on one loss,-10
-First LL4,10
-First kiss,5
-Any kiss,3
-Self Eliminates,-15
-First Huju of season,10
-Any Huju,5
-Blocks a steal,5
-Performs a steal,5
-STCO,5
-PTC,6
-IFI,5
-Sex before fantasy suites,15
-Liftoff,5
+Event,Points
+Rose Ceremony Order,1
+One on One Time,3
+Group Date Attendee,5
+One on One Date,15
+Bachelor Preference,6
+Wins PFT,9
+Partners with Lead on GD,6
+Any Kiss,2
+Performs a Steal,5
+Blocks A Steal,8
+PTC,11
+Huju,6
+First kiss,7
+Tears,3
+Self Eliminates,-20
+Two On One Win,15
+Two On One Loss,-10
+First LL4,20
+STCO,8
+GDR,25
+IFI,12
+Sex before fantasy suites,30
+Liftoff,6
 Resurrected,15
-Zero point rose,10
-Knock Knock,15
+Zero point rose,25
+Knock Knock,10
 Ring winner,100
 Runner Up,80
 Third Place,60
 Fourth place,40
 Fifth place,20
 Sixth place,10
-Final RQ,10
+FIMP,25
+LL Raise,13
+PDA,6
+First Responder,4
+Firework Show,5
+Dishonorable Discharge,-25
+No Rose on One on One,-15
+Limo Exit Number,1
+Pulled aside FTWR,-3
+ITM,1
